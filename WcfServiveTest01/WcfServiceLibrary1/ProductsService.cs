@@ -14,5 +14,11 @@ namespace WcfServiceLibrary1
         {
             return string.Format("You entered: {0}", value);
         }
+
+        public List<Product> GetProducts(string productLine)
+        {
+            AdventureWorks2014Entities db = new AdventureWorks2014Entities();
+            return db.Products.Where(p => p.ProductLine == productLine).ToList();
+        }
     }
 }

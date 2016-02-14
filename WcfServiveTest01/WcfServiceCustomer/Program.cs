@@ -12,10 +12,18 @@ namespace WcfServiceCustomer
     {
         static void Main(string[] args)
         {
+            List<Product> products = new List<Product>();
+
             ProductsServiceClient proxy = new ProductsServiceClient();
-            Console.WriteLine("Appel de la méthode distante...");
+            Console.WriteLine("Appel de la méthode distante 'GetData' ...");
             Console.WriteLine(proxy.GetData(99));
-            Console.WriteLine("Press enter to quit...");
+            Console.WriteLine("-----------------------");
+            Console.WriteLine("Appel de la méthode distante 'GetProducts'... ");
+            products = proxy.GetProducts("R");
+            foreach (var item in products)
+            {
+                Console.WriteLine(item.ProductID + " : " + item.Name + " : " + item.Color + " : " + item.ListPrice);
+            }
             Console.ReadLine();
         }
     }

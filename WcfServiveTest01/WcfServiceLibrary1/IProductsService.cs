@@ -14,5 +14,8 @@ namespace WcfServiceLibrary1
         [OperationContract]
         string GetData(int value);
 
+        [OperationContract]
+        List<Product> GetProducts(string productLine);
+   
     }
 }
